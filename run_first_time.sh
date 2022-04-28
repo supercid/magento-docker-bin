@@ -9,6 +9,9 @@ rm -rf src
 bin/download 2.4.4
 bin/setup magento2.dev.nos.to:8443
 
+bin/magento module:disable Magento_TwoFactorAuth
+# bin/magento module:disable Magento_Csp --clear-static-content
+
 bin/composer config minimum-stability dev
 bin/composer config --unset repositories.0
 
@@ -25,9 +28,6 @@ bin/composer update --no-dev
 bin/magento sampledata:deploy
 bin/magento setup:upgrade
 
-# bin/composer remove magento/composer-dependency-version-audit-plugin
-bin/magento module:disable Magento_TwoFactorAuth
-bin/magento module:disable Magento_Csp --clear-static-content
 
 bin/magento config:set nosto/flags/inventory_tagging 1
 bin/magento config:set nosto/flags/variation_tagging 1

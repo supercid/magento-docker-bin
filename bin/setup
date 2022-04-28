@@ -90,8 +90,7 @@ echo "Re-indexing with Elasticsearch..."
 bin/clinotty bin/magento indexer:reindex
 
 echo "Setting basic URL and generating SSL certificate..."
-# bin/setup-domain "${DOMAIN}"
-bin/setup-domain "magento2.dev.nos.to"
+bin/setup-domain "${DOMAIN}"
 
 echo "Clearing the cache to apply updates..."
 bin/clinotty bin/magento cache:flush
