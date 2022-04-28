@@ -52,3 +52,14 @@ bin/magento cache:clean
 
 cp env/nosto.env src/vendor/nosto/php-sdk/src/.env
 bin/copytocontainer vendor/nosto/php-sdk/src/
+
+# Uncoment if you're doing local development, this sets up the git repo:
+# git clone git@github.com:Nosto/nosto-magento2.git src/vendor/nosto/module-nostotagging
+# git clone git@github.com:Nosto/nosto-magento2-cmp.git src/vendor/nosto/module-nostotagging-cmp
+# bin/copytocontainer vendor/nosto
+# bin/magento module:enable --clear-static-content Nosto_Tagging Nosto_Cmp
+# bin/magento setup:upgrade
+# bin/magento setup:di:compile
+# bin/magento setup:static-content:deploy -f
+# bin/magento cache:clean
+# echo "You should be set for local development. Remember to add magento src to PHPStorm for code completion"
