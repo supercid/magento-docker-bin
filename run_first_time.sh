@@ -49,3 +49,6 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 bin/magento setup:static-content:deploy
 bin/magento cache:clean
+
+cp env/nosto.env src/vendor/nosto/php-sdk/src/.env
+bin/copytocontainer vendor/nosto/php-sdk/src/
