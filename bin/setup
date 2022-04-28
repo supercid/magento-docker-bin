@@ -13,6 +13,8 @@ source env/elasticsearch.env
 source env/magento.env
 # shellcheck source=../env/rabbitmq.env
 source env/rabbitmq.env
+# shellcheck source=../env/nosto.env
+source env/nosto.env
 
 DOMAIN=${1:-magento.test}
 
