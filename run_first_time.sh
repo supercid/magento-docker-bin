@@ -7,7 +7,7 @@ docker-compose down -v --remove-orphans
 rm -rf src
 
 bin/download 2.4.4
-bin/setup magento.dev.nos.to:8443
+bin/setup magento2.dev.nos.to:8443
 
 bin/composer config minimum-stability dev
 bin/composer config --unset repositories.0
