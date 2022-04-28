@@ -47,7 +47,7 @@ bin/magento config:set nosto/flags/tag_date_published 1
 bin/magento module:enable --clear-static-content Nosto_Tagging
 bin/magento setup:upgrade
 bin/magento setup:di:compile
-bin/magento setup:static-content:deploy
+bin/magento setup:static-content:deploy -f
 bin/magento cache:clean
 
 cp env/nosto.env src/vendor/nosto/php-sdk/src/.env
