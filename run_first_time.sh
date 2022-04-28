@@ -36,13 +36,12 @@ bin/magento config:set nosto/flags/altimg_tagging 1
 bin/magento config:set nosto/flags/rating_tagging 1
 bin/magento config:set nosto/flags/product_updates 1
 bin/magento config:set nosto/flags/low_stock_indication 1
-bin/magento config:set nosto/flags/send_add_to_cart_event 1
 bin/magento config:set nosto/flags/send_customer_data 1
 bin/magento config:set nosto/flags/indexer_memory 70
 bin/magento config:set nosto/flags/tag_date_published 1
 # bin/magento config:set nosto_cmp/flags/category_sorting 1
 # bin/magento config:set nosto_cmp/flags/map_all_categories 1
-bin/magento cache:flush
+# bin/magento cache:flush
 
 
 bin/magento module:enable --clear-static-content Nosto_Tagging

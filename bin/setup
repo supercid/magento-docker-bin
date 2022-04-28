@@ -91,7 +91,7 @@ bin/clinotty bin/magento indexer:reindex
 
 echo "Setting basic URL and generating SSL certificate..."
 # bin/setup-domain "${DOMAIN}"
-bin/setup-domain "magento.dev.nos.to"
+bin/setup-domain "magento2.dev.nos.to"
 
 echo "Clearing the cache to apply updates..."
 bin/clinotty bin/magento cache:flush
@@ -102,7 +102,7 @@ bin/clinotty bin/magento cron:install
 echo "Turning on developer mode..."
 bin/clinotty bin/magento deploy:mode:set developer
 
-mv .vscode src/
+# mv .vscode src/
 
 echo "Docker development environment setup complete."
 echo "You may now access your Magento instance at https://${DOMAIN}/"

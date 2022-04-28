@@ -34,7 +34,7 @@ services:
       - "elasticsearch:172.17.0.1"
       - "rabbitmq:172.17.0.1"
       ## Selenium support, replace "magento.test" with URL of your site
-      - "magento.dev.nos.to:172.17.0.1"
+      - "magento2.dev.nos.to:172.17.0.1"
       - "my.dev.nos.to:192.168.65.2"
 
   phpfpm:
