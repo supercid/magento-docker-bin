@@ -28,7 +28,6 @@ services:
 #      - ./src/vendor/nosto/module-nosto-msi:/var/www/html/vendor/nosto/module-nosto-msi
 #      - ./src/vendor/nosto/php-sdk:/var/www/html/vendor/nosto/php-sdk
 #      - ./src/generated:/var/www/html/generated
-
     extra_hosts: &appextrahosts
       - "magento245.dev.nos.to:172.17.0.1"
       - "my.dev.nos.to:192.168.65.254"
@@ -38,23 +37,23 @@ services:
       ## Linux, uncomment for Xdebug capabilities:
       #- "host.docker.internal:host-gateway"
 
-  #  mage-logs:
-  #    image: markoshust/magento-php:8.3-fpm-2
-  #    volumes: *appvolumes
-  #    extra_hosts: *appextrahosts
-  #    env_file: env/phpfpm.env
-  #    working_dir: /var/www/html
-  #    entrypoint:
-  #      - bash
-  #      - -e
-  #      - -c
-  #      - >
-  #        tail -f var/log/*
+#  mage-logs:
+#    image: markoshust/magento-php:8.3-fpm-2
+#    volumes: *appvolumes
+#    extra_hosts: *appextrahosts
+#    env_file: env/phpfpm.env
+#    working_dir: /var/www/html
+#    entrypoint:
+#      - bash
+#      - -e
+#      - -c
+#      - >
+#        tail -f var/log/*
   phpfpm:
     image: markoshust/magento-php:8.3-fpm-2
     volumes: *appvolumes
     env_file: env/phpfpm.env
-    #extra_hosts: *appextrahosts
+    extra_hosts: *appextrahosts
 
   db:
     image: mariadb:10.6
