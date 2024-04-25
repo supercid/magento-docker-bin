@@ -11,6 +11,7 @@ bin/setup magento245.dev.nos.to:8443
 
 bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth
 bin/magento module:disable Magento_TwoFactorAuth
+bin/magento config:set admin/security/session_lifetime 31536000
 # bin/magento module:disable Magento_Csp --clear-static-content
 
 bin/composer config minimum-stability dev
