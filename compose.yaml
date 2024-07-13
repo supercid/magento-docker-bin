@@ -123,8 +123,8 @@ services:
 
   rabbitmq:
     image: markoshust/magento-rabbitmq:3.12-0
-#    ports:
-#      - "15673:15672"
+    ports:
+      - "15673:15672"
 #      - "5673:5672"
     volumes:
       - rabbitmqdata:/var/lib/rabbitmq
