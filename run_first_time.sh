@@ -2,23 +2,21 @@
 
 set -e
 
-bin/removeall
+# if the first try fails, uncomment and
+# this will remove all containers and images from this project and stop all other running containers
+# bin/removeall
 
 rm -rf src
 
-bin/download 2.4.7 community
+bin/download 2.4.7-p3 community
 bin/setup magento245.dev.nos.to:8443
 
 bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth
 bin/magento module:disable Magento_TwoFactorAuth
 bin/magento config:set admin/security/session_lifetime 31536000
-# bin/magento module:disable Magento_Csp --clear-static-content
 
 bin/composer config minimum-stability dev
 bin/composer config --unset repositories.0
-
-# bin/composer require --no-update nosto/module-nostotagging:"@stable" 
-# bin/composer update --no-dev
 
 bin/composer require --no-update nosto/module-nostotagging:"@stable"
 bin/composer require --no-update nosto/module-nostotagging-cmp:"@stable"
@@ -29,7 +27,6 @@ bin/composer update --no-dev
 
 bin/magento sampledata:deploy
 bin/magento setup:upgrade
-
 
 bin/magento config:set nosto/flags/inventory_tagging 1
 bin/magento config:set nosto/flags/variation_tagging 1
@@ -45,7 +42,6 @@ bin/magento config:set nosto_cmp/flags/category_sorting 1
 bin/magento config:set nosto_cmp/flags/map_all_categories 1
 bin/magento cache:flush
 
-
 bin/magento module:enable --clear-static-content Nosto_Tagging Nosto_Cmp Nosto_Msi
 bin/magento setup:upgrade
 bin/magento setup:di:compile
@@ -53,8 +49,6 @@ bin/magento setup:static-content:deploy -f
 bin/magento cache:clean
 
 bin/copyfromcontainer vendor/nosto
-# cp env/nosto.env src/vendor/nosto/php-sdk/src/.env
-# bin/copytocontainer vendor/nosto/php-sdk/src/
 
 # If you're doing local development, this sets up the git repositories:
 rm -rf src/vendor/nosto/module-nostotagging
